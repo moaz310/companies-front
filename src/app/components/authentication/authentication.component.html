@@ -1,0 +1,38 @@
+<div class="login-container">
+  <form [formGroup]="userForm">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" />
+      @if(userForm.get('username')?.invalid && userForm.get('username')?.touched){
+      <mat-error> Username is required </mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password"/>
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="clickEvent($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide()"
+      >
+        <mat-icon>{{ hide() ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      @if(userForm.get('password')?.invalid &&
+      userForm.get('password')?.touched){
+      <mat-error> Password is required </mat-error>
+      }
+    </mat-form-field>
+
+    <button
+      mat-button
+      color="primary"
+      [disabled]="userForm.invalid"
+      (click)="login()"
+    >
+      Login
+    </button>
+  </form>
+</div>
