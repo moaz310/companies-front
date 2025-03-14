@@ -1,0 +1,23 @@
+<mat-card class="example-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ company.companyName }}</mat-card-title>
+    <mat-card-subtitle>{{ company.companyEmail }}</mat-card-subtitle>
+    <a class="example-header-image" href="{{ company.companyWebsite }}">
+      <img
+        width="200px"
+        mat-card-image
+        src="{{ company.companyLogoUrl }}"
+        alt="{{ company.companyWebsite }}"
+      />
+    </a>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ company.companyDescription }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="deleteCompany(company.id)">Delete</button>
+    <button mat-button (click)="updateCompany()">Update</button>
+  </mat-card-actions>
+</mat-card>
