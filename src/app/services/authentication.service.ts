@@ -14,6 +14,10 @@ export class AuthenticationService {
     private router: Router
   ) { }
 
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
   isAuthenticated() {
     return localStorage.getItem('token') !== null;
   }
