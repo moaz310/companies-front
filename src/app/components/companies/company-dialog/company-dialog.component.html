@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>
+  @if(editMode){ Edit {{ company.companyName }}
+  }@else{ Add a new company }
+</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="companyForm" class="companyForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="companyName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="companyEmail" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="companyAddress" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="companyPhone" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Website</mat-label>
+      <input matInput formControlName="companyWebsite" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Logo Url</mat-label>
+      <input matInput formControlName="companyLogoUrl" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="companyDescription"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="CloseDialog(null)">Cancel</button>
+  <button
+    mat-button
+    (click)="editMode ? updateCompany() : addCompany()"
+    cdkFocusInitial
+  >
+    {{ editMode ? "Update" : "Add" }}
+  </button>
+</mat-dialog-actions>

@@ -31,11 +31,11 @@ export class CompaniesService {
     return this.httpClient.delete<any>(deleteCompanyUrl + id);
   }
 
-  updateCompany(company: Company): Observable<any> {
-    return this.httpClient.put<any>(updateCompanyUrl + company.id, company);
+  updateCompany(companyId: number, company: Company): Observable<any> {
+    return this.httpClient.put<any>(updateCompanyUrl + companyId, company);
   }
 
-  addCompany(company: Company): Observable<any> {
-    return this.httpClient.post<any>(addCompanyUrl, company);
+  addCompany(company: Company): Observable<Company> {
+    return this.httpClient.post<Company>(addCompanyUrl, company);
   }
 }

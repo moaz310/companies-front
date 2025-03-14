@@ -2,7 +2,7 @@
 <mat-grid-list cols="4" rowHeight="2:1">
     @for(company of companies; track company.id){
         <mat-grid-tile>
-            <app-company [company]="company" (companyDeleted)="onDeletedCompany($event)"></app-company>
+            <app-company [company]="company" (companyDeleted)="onDeletedCompany($event)" (companyUpdated)="onUpdatedCompany($event)"></app-company>
         </mat-grid-tile>
     }
 </mat-grid-list>
